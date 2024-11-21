@@ -70,7 +70,7 @@ fi
 
 # perform copy output logs to log dir
 echo "File copy Started Standby!"
-rsync -avP --progress source/ destination/ --log-file=output.txt
+rclone copy  source/ destination/ --transfers 128 --checkers 128 > output.txt
 echo "File copy completed!, run "cat output.txt" to view the results."
 
 #unmount source and destination bkuckets.
